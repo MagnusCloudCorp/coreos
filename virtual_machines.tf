@@ -1,11 +1,11 @@
 // virtual_machines creates virtual machines
 // host.
-resource "vsphere_virtual_machine" "example_virtual_machines" {
+resource "vsphere_virtual_machine" "virtual_machines" {
   count            = "${virtual_machine_count}"
   name             = "${var.virtual_machine_name_prefix}${count.index}"
   resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
   # host_system_id   = "${data.vsphere_host.example_hosts.*.id[count.index]}"
-  datastore_id     = "${data.vsphere_datastore.example_datastore.id}"
+  datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
   num_cpus = 2
   memory   = 1024
