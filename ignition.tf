@@ -63,7 +63,7 @@ data "ignition_file" "virtual_machine_hostname_file" {
 data "ignition_config" "ignition_config" {
   count    = "${var.virtual_machine_count}"
   files    = ["${data.ignition_file.virtual_machine_hostname_file.*.id[count.index]}"]
-  systemd  = ["${data.ignition_systemd_unit.service_unit.id}"]
+  # systemd  = ["${data.ignition_systemd_unit.service_unit.id}"]
   networkd = ["${data.ignition_networkd_unit.virtual_machine_network_unit.*.id[count.index]}"]
 
   users = [
