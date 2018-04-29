@@ -11,7 +11,7 @@ resource "tls_private_key" "provisioning_ssh_key" {
 // provisioning key to the server.
 data "ignition_user" "root_user" {
   name                = "root"
-  ssh_authorized_keys = ["${tls_private_key.example_provisioning_ssh_key.public_key_openssh}"]
+  ssh_authorized_keys = ["${tls_private_key.provisioning_ssh_key.public_key_openssh}"]
 }
 
 // example_core_user creates the user snippet for the "core" user for the
@@ -42,7 +42,7 @@ data "template_file" "virtual_machine_network_content" {
 data "ignition_networkd_unit" "virtual_machine_network_unit" {
   count   = "${var.virtual_machine_count}"
   name    = "00-ens192.network"
-  content = "${data.template_file.example_virtual_machine_network_content.*.rendered[count.index]}"
+  content = "${data.template_file.virtual_machine_network_content.*.rendered[count.index]}"
 }
 
 // virtual_machine_hostname_file defines the content of the system
