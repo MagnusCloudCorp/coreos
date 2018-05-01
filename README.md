@@ -61,7 +61,7 @@ We are going to make use of [vSphere Storage for Kubernetes](https://vmware.gith
 To make this task easier, clone my github utils repository into the DevOps folder.
 ```
 $ cd ~/DevOps
-$ git clone git@gitlab.cicd.aax.co.za:devops/utils.git
+$ git clone git@github.com:linosteenkamp/devops-utils.git
 $ cd utils
 $ chmod +x enableUUID.sh
 ```
